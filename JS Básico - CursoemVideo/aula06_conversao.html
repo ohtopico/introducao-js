@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+            font:100 normal 20pt Arial;
+        }
+
+        h1{
+            font-size: 1.3em;
+        }
+        
+        h2{
+            font-size: 1em;
+        }
+
+        p{
+            font-size: 0.6em;
+            line-height: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dicas de JS</h1>
+    <p>number + number = adição</p>
+    <p>string + string = concatenação</p>
+    <p>=== verifica se é Valor e Tipo igual</p>
+    
+    <h2>Conversões</h2>
+    <p>Number.parseInt(n) converte para int</p> 
+    <p>Number.parseFloat(n) converte para float</p>   
+    <p>String(n) ou n.toString(n) são funções que convertem para string</p>
+
+    <h2>Formatando Strings</h2>
+    <p>var s = 'JavaScript'</p>
+    <p>'eu estou aprendendo s' não faz interpolação</p>
+    <p>'Eu estou aprendendo' + s usa concatenação</p>
+    <p>`Eu estou aprendendo ${s}` usa template string</p>
+
+    <h2>Mais de strings</h2>
+    <p>s.lengh mostra o número de caracteres da string</p>
+    <p>s.toUpperCase() coloca em letras maiúsculas</p>
+    <p>s.toLowerCase() coloca em letras minúsculas</p>
+
+   
+   <script>
+        var num1 = window.prompt('Digite um número') //lê string
+        var num2 = window.prompt('Digite outro número') //lê string
+        var concat = num1 + num2
+        window.alert('Concatenando os números: ' + concat)
+
+        soma = Number.parseInt(num1) + Number.parseInt(num2)
+        window.alert('Soma dos números: ' + soma)
+    </script>
+    
+</body>
+</html>
