@@ -2,7 +2,7 @@ let amigo = {
     nome: 'Rodrigo', 
     sexo: 'M', 
     peso: 70.1, 
-    engordar(peso){
+    engordar(p){
         console.log('Engordou')
         this.peso +=p
     }
