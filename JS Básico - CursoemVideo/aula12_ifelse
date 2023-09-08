@@ -1,0 +1,6 @@
+var idade = 23
+if(idade < 18){
+    console.log('Criança ou adolescente')
+} else{
+    console.log('Adulto')
+}
