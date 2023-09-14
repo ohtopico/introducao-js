@@ -11,6 +11,9 @@ class CalcController {
         let dateEl = document.querySelector("#data");
         let timeEl = document.querySelector("#hora");
 
+        displayCalcEl.innerHTML = "123";
+        dateEl.innerHTML = "13/09/2023";
+        timeEl.innerHTML =  "00:00";
     }
 
     get displayCalc(){
