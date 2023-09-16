@@ -10,18 +10,26 @@ class CalcController {
     }
 
     initialize(){
-        setInterval(()=> {
-            this.displayDate = this.currentDate.toDateString(this._locale);
-            this.displayTime = this.currentDate.toTimeString(this._locale);
-        }, 1000); //atualiza a data a cada 1 segundo
+        this.setDisplayDateTime()
+
+        setInterval(()=>{
+            //atualiza a data a cada 1000 milisegundos
+            this.setDisplayDateTime();
+
+        }, 1000);
     }
 
-    get displayDate(){
-        return this._dateEl.innerHTML;
+    initButtonsEvents(){
+        let buttons = document.querySelectorAll("#buttons > g, #parts > g");
     }
 
-    set displayDate(value){
-        return this._dateEl.innerHTML = value;
+    setDisplayDateTime(){
+        this.displayDate = this.currentDate.toLocaleDateString(this._locale, {
+            day: "2-digit",
+            month: "long",
+            year: "numeric"
+        });
+        this.displayTime = this.currentDate.toLocaleTimeString(this._locale);
     }
 
     get displayTime(){
@@ -32,12 +40,12 @@ class CalcController {
         return this._timeEl.innerHTML = value;
     }
 
-    get currentDate(){
-        return new Date();
+    get displayDate(){
+        return this._dateEl.innerHTML;
     }
 
-    set currentDate(value){
-        this._currentDate = value;
+    set displayDate(value){
+        return this._dateEl.innerHTML = value;
     }
 
     get displayCalc(){
@@ -46,6 +54,14 @@ class CalcController {
 
     set displayCalc(value){
         this._displayCalcEl.innerHTML = value;
+    }
+
+    get currentDate(){
+        return new Date();
+    }
+
+    set currentDate(value){
+        this._currentDate = value;
     }
 
 }
