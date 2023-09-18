@@ -7,6 +7,7 @@ class CalcController {
         this._timeEl = document.querySelector("#hour");
         this._currentDate;
         this.initialize();
+        this.initButtonsEvents();
     }
 
     initialize(){
@@ -22,6 +23,16 @@ class CalcController {
     initButtonsEvents(){
         //seleciona todos os botões da calculadora
         let buttons = document.querySelectorAll("#buttons > g, #parts > g");
+
+        buttons.forEach((btn, index)=>{
+            //percorre a lista de botões e adiciona um EventListener
+
+            btn.addEventListener('click', e => {
+                //percebe cliques dos usuários nos botões
+                console.log(btn.className.baseVal.replace("btn-",""));
+            })
+        })
+
     }
 
     setDisplayDateTime(){
