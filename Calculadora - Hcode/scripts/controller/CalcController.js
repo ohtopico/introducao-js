@@ -20,6 +20,7 @@ class CalcController {
     }
 
     initButtonsEvents(){
+        //seleciona todos os botões da calculadora
         let buttons = document.querySelectorAll("#buttons > g, #parts > g");
     }
 
