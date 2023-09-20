@@ -36,6 +36,7 @@ class CalcController {
     }
 
     setDisplayDateTime(){
+        //formata a data no display
         this.displayDate = this.currentDate.toLocaleDateString(this._locale, {
             day: "2-digit",
             month: "long",
@@ -69,6 +70,7 @@ class CalcController {
     }
 
     get currentDate(){
+        //pega a data atual
         return new Date();
     }
 
