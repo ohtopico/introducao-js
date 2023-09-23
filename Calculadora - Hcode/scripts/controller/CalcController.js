@@ -23,9 +23,11 @@ class CalcController {
 
     addEventListenerAll(element, events, fn){
 
+        //slit separa os eventos recebidos
         events.split(' ').forEach(event => {
-
-            element.addEventListener(event, fn, false);
+            
+            //quando clicamos no botão, ele pode reconhecer 2x o mesmo número, então o false é para impedir que isso ocorra
+            element.addEventListener(event, fn, false); 
 
         })
     
@@ -174,7 +176,7 @@ class CalcController {
             })
 
             this.addEventListenerAll(btn, "mouseover mouseup mousedown", e => {
-
+                //faz o mouse "parecer clicável" quando está em cima do botão
                 btn.style.cursor = "pointer";
 
             })
