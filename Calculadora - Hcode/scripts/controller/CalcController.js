@@ -86,35 +86,23 @@ class CalcController {
     }
 
     addOperation(value){
-
         console.log('A', isNaN(this.getLastOperation()));
 
         if (isNaN(this.getLastOperation())) {
-
+    
             if (this.isOperator(value)) {
-
                 this.setLastOperation(value);
-
             } else if (isNaN(value)){
-
                 console.log(value);
-
             } else {
-
                 this._operation.push(value);
-
             }
-
         } else {
-
             let newValue = this.getLastOperation().toString() + value.toString();
-
             this.setLastOperation(parseInt(newValue));
-
         }
 
         console.log(this._operation);
-
     }
 
     setError(){
