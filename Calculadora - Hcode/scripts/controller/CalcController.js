@@ -118,20 +118,20 @@ class CalcController {
     }
 
     setError(){
-
         this.displayCalc = "Error";
-        
     }
 
     execBtn(value){
-
+        //Vai guardando num array as operações que o usuário clica
         switch (value) {
 
             case 'ac':
+                //apaga tudo
                 this.clearAll();
                 break;
 
             case 'ce':
+                //apaga a última entrada
                 this.clearEntry();
                 break;
 
