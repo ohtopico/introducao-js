@@ -32,19 +32,21 @@ class CalcController {
         })
     
     }
-
     
     clearAll(){
-
+        //esvazia o array
         this._operation = [];
-
     }
 
     clearEntry(){
+        //retira o último item do array 
         this._operation.pop();
     }
 
     getLastOperation(){
+        /* dado o vetor [1,2,"+"]: 
+            length é 3 mas
+            a posição do último item no vetor é 2*/
         return this._operation[this._operation.length-1];
     }
 
@@ -53,13 +55,11 @@ class CalcController {
     }
 
     isOperator(value){
-
+        //verifica se é um operador
         return (['+', '-', '*', '%', '/'].indexOf(value) > -1);
-
     }
 
     pushOperation(value){
-
         this._operation.push(value);
         if (this._operation.length > 3) {
             this.calc();
@@ -88,9 +88,11 @@ class CalcController {
     addOperation(value){
         console.log('A', isNaN(this.getLastOperation()));
 
-        if (isNaN(this.getLastOperation())) {
-    
-            if (this.isOperator(value)) {
+        //   Validação para ver se é um número ou uma operação
+        if (isNaN(this.getLastOperation())){  //NaN (not a number)
+
+            //Caso o usuário selecione dois operadores em sequência, seleciona apenas o último
+            if (this.isOperator(value)) { 
                 this.setLastOperation(value);
             } else if (isNaN(value)){
                 console.log(value);
@@ -98,8 +100,9 @@ class CalcController {
                 this._operation.push(value);
             }
         } else {
+            //Concatena uma sequência de números
             let newValue = this.getLastOperation().toString() + value.toString();
-            this.setLastOperation(parseInt(newValue));
+            this.setLastOperation(parseInt(newValue)); //converte de string para número
         }
 
         console.log(this._operation);
