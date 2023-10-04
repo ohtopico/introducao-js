@@ -68,7 +68,7 @@ class CalcController {
 
     calc(){
         let last = this._operation.pop();
-        let result = eval(this._operation.join(""));
+        let result = eval(this._operation.join("")); //faz tudo virar a mesma string usando o separador vazio com join e calcula com eval
         this._operation = [result, last];
     }
 
@@ -86,7 +86,7 @@ class CalcController {
     }
 
     addOperation(value){
-        console.log('A', isNaN(this.getLastOperation()));
+        console.log('Teste do array', isNaN(this.getLastOperation()));
 
         //   Validação para ver se é um número ou uma operação
         if (isNaN(this.getLastOperation())){  //NaN (not a number)
@@ -103,6 +103,9 @@ class CalcController {
             //Concatena uma sequência de números
             let newValue = this.getLastOperation().toString() + value.toString();
             this.setLastOperation(parseInt(newValue)); //converte de string para número
+
+            //atualizar display
+            this.setLastNumberToDisplay();
         }
 
         console.log(this._operation);
