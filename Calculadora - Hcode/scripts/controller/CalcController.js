@@ -70,6 +70,7 @@ class CalcController {
         let last = this._operation.pop();
         let result = eval(this._operation.join("")); //faz tudo virar a mesma string usando o separador vazio com join e calcula com eval
         this._operation = [result, last];
+        this.setLastNumberToDisplay();
     }
 
     setLastNumberToDisplay(){
@@ -98,17 +99,24 @@ class CalcController {
                 console.log(value);
             } else {
                 this._operation.push(value);
+
+                this.setLastNumberToDisplay();
             }
         } else {
-            //Concatena uma sequência de números
-            let newValue = this.getLastOperation().toString() + value.toString();
-            this.setLastOperation(parseInt(newValue)); //converte de string para número
+            if (this.isOperator(value)){
 
-            //atualizar display
-            this.setLastNumberToDisplay();
+                this.pushOperation(value);
+
+            } else {
+                //Concatena uma sequência de números
+                let newValue = this.getLastOperation().toString() + value.toString();
+                
+                this.setLastOperation(parseInt(newValue)); //converte de string para número
+
+                //atualizar display
+                this.setLastNumberToDisplay();
+            }
         }
-
-        console.log(this._operation);
     }
 
     setError(){
